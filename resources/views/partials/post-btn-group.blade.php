@@ -1,3 +1,12 @@
+@if(isset($post))
+
+    <button title="Delete this article"
+            class="text-red-light mr-2">
+        <i class="fas fa-trash-alt"></i>
+    </button>
+
+@endif
+
 <button @click="$modal.show('categoryModal')"
         class="text-grey-dark mr-2"
         title="Select Category">
@@ -21,3 +30,4 @@
         class="text-grey-dark mr-2">
     <i class="fas fa-code"></i>
 </button>
+

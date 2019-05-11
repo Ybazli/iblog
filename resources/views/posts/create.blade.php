@@ -33,7 +33,7 @@
         <div class="my-5">
             <input type="text"
                    name="title"
-                   class="w-full py-5 pl-5 rounded font-serif text-lg"
+                   class="w-full py-5 pl-5 rounded font-serif text-2xl"
                    placeholder="Title">
         </div>
 

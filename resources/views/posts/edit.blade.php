@@ -34,7 +34,7 @@
             <input type="text"
                    name="title"
                    value="{{ $post->title }}"
-                   class="w-full py-5 pl-5 rounded font-serif text-lg"
+                   class="w-full py-5 pl-5 rounded font-serif text-2xl"
                    placeholder="Title">
         </div>
 
@@ -43,7 +43,7 @@
         <div class="my-5">
             <button type="submit"
                     class="py-3 px-6 bg-indigo-light text-white rounded">
-                Save
+                Update
             </button>
 
         </div>

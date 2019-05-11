@@ -5,18 +5,12 @@
         <div class="flex items-center">
 
             <a href="{{ route('home') }}" class="text-xl text-grey-darker no-underline">
-                {{ config('app.name') }}
+                {{ config('app.name' , 'iBlog') }}
             </a>
 
             <ul class="list-reset inline-flex ml-5">
                 <li class="mr-5">
-                    <a href="#" class="link">Blog</a>
-                </li>
-                <li class="mr-5">
-                    <a href="#" class="link">Blog</a>
-                </li>
-                <li class="mr-5">
-                    <a href="#" class="link">Blog</a>
+                    <a href="/blog" class="link ">Blog</a>
                 </li>
             </ul>
         </div>

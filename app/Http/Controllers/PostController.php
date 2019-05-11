@@ -49,9 +49,9 @@ class PostController extends Controller
      * @param StorePost $request
      * @return void
      */
-    public function store(Request $request)
+    public function store(StorePost $request)
     {
-//        $request->validated();
+        $request->validated();
         return $request->all();
 
     }
@@ -89,6 +89,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         return $request->all();
     }
 
