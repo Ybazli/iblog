@@ -7,7 +7,6 @@
 
     @endforeach
 @endif
-
 @if(Session::has('message'))
     <alert message="{{ Session::get('message') }}" type="success">
     </alert>

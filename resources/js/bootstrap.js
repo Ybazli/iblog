@@ -5,12 +5,14 @@ try {
     window.Popper = require('popper.js').default;
 } catch (e) {}
 
+window.Vue = new require('vue');
 
 window.axios = require('axios');
 
 window.Noty = require('noty');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
 
 
 let token = document.head.querySelector('meta[name="csrf-token"]');
