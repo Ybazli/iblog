@@ -1,20 +1,32 @@
 <template>
     <div>
-        <input type="hidden" name="image" :value="image">
+        <input type="hidden" name="image" :value="filePath">
 
-        <modal name="featuredImage"  height="auto">
+        <modal name="featuredImage"
+               @before-close="this.beforeClose"
+               height="auto">
 
             <div class="p-5">
-                <h3 class="text-grey-dark my-5">Select Featured Image</h3>
-                <label for="image" class="block content-center" style="text-align:center">
-                    <img src="/images/assets/upload-icon.png" alt="" width="150px">
+
+                <h3 class="text-grey-dark my-5">Select Featured
+                    Image</h3>
+
+                <label for="image" class="block content-center"
+                       style="text-align:center">
+                    <img :src="image"
+                         alt=""
+                         width="300px">
                     <br>
-                    Click to select file
+                    <span v-if="">Click to select file</span>
                 </label>
+
                 <input type="file"
-                       name=""
+                       name="image"
                        id="image"
-                       class="bg-white w-full p-5 mt-5 hidden font-sans">
+                       @change="onChange"
+                       ref="imageFile"
+                       accept="image/*"
+                       class="hidden">
 
                 <div class="mt-16">
 
@@ -35,22 +47,58 @@
 
 <script>
     import VModel from 'vue-js-modal';
+
     export default {
         name: "FeaturedImageUploadModal.vue",
-        components:{
+        components: {
             VModel
         },
-        data(){
+        data() {
             return {
-                image:''
+                image: '/images/assets/upload-icon.png',
+                uploadPath: '/blog/posts/create/image-upload',
+                filePath: '',
+                file: ''
             }
         },
-        methods:{
-            show(){
+        methods: {
+            show() {
                 this.$modal.show('featuredImage');
             },
-            hide(){
+            hide() {
                 this.$modal.hide('featuredImage');
+            },
+            onChange(e) {
+
+                let file = e.target.files[0];
+                this.file = file;
+                let reader = new FileReader();
+                reader.readAsDataURL(file);
+
+                reader.onload = e => {
+                    let src = e.target.result;
+                    this.image = src;
+                };
+
+
+            },
+
+            beforeClose() {
+                this.uploadImage(this.file);
+            },
+
+            uploadImage(file) {
+                let data = new FormData();
+                data.append('image', file);
+
+                axios.post(this.uploadPath, data)
+
+                    .then((e) =>
+                        this.filePath = e.data
+                    )
+
+                    .catch((xhr) => console.log(xhr));
+
             }
         }
     }

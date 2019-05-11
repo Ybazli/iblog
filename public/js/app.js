@@ -1861,6 +1861,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FeaturedImageUploadModal.vue",
@@ -1869,7 +1881,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      image: ''
+      image: '/images/assets/upload-icon.png',
+      uploadPath: '/blog/posts/create/image-upload',
+      filePath: '',
+      file: ''
     };
   },
   methods: {
@@ -1878,6 +1893,33 @@ __webpack_require__.r(__webpack_exports__);
     },
     hide: function hide() {
       this.$modal.hide('featuredImage');
+    },
+    onChange: function onChange(e) {
+      var _this = this;
+
+      var file = e.target.files[0];
+      this.file = file;
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+
+      reader.onload = function (e) {
+        var src = e.target.result;
+        _this.image = src;
+      };
+    },
+    beforeClose: function beforeClose() {
+      this.uploadImage(this.file);
+    },
+    uploadImage: function uploadImage(file) {
+      var _this2 = this;
+
+      var data = new FormData();
+      data.append('image', file);
+      axios.post(this.uploadPath, data).then(function (e) {
+        return _this2.filePath = e.data;
+      })["catch"](function (xhr) {
+        return console.log(xhr);
+      });
     }
   }
 });
@@ -36675,54 +36717,65 @@ var render = function() {
     [
       _c("input", {
         attrs: { type: "hidden", name: "image" },
-        domProps: { value: _vm.image }
+        domProps: { value: _vm.filePath }
       }),
       _vm._v(" "),
-      _c("modal", { attrs: { name: "featuredImage", height: "auto" } }, [
-        _c("div", { staticClass: "p-5" }, [
-          _c("h3", { staticClass: "text-grey-dark my-5" }, [
-            _vm._v("Select Featured Image")
-          ]),
-          _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "block content-center",
-              staticStyle: { "text-align": "center" },
-              attrs: { for: "image" }
-            },
-            [
-              _c("img", {
-                attrs: {
-                  src: "/images/assets/upload-icon.png",
-                  alt: "",
-                  width: "150px"
-                }
-              }),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v("\n                Click to select file\n            ")
-            ]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "bg-white w-full p-5 mt-5 hidden font-sans",
-            attrs: { type: "file", name: "", id: "image" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "mt-16" }, [
+      _c(
+        "modal",
+        {
+          attrs: { name: "featuredImage", height: "auto" },
+          on: { "before-close": this.beforeClose }
+        },
+        [
+          _c("div", { staticClass: "p-5" }, [
+            _c("h3", { staticClass: "text-grey-dark my-5" }, [
+              _vm._v("Select Featured\n                Image")
+            ]),
+            _vm._v(" "),
             _c(
-              "button",
+              "label",
               {
-                staticClass: "py-3 px-6 bg-indigo-light text-white rounded",
-                attrs: { type: "button" },
-                on: { click: this.hide }
+                staticClass: "block content-center",
+                staticStyle: { "text-align": "center" },
+                attrs: { for: "image" }
               },
-              [_vm._v("\n                    Upload\n                ")]
-            )
+              [
+                _c("img", {
+                  attrs: { src: _vm.image, alt: "", width: "300px" }
+                }),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("span", [_vm._v("Click to select file")])
+              ]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              ref: "imageFile",
+              staticClass: "hidden",
+              attrs: {
+                type: "file",
+                name: "image",
+                id: "image",
+                accept: "image/*"
+              },
+              on: { change: _vm.onChange }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "mt-16" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "py-3 px-6 bg-indigo-light text-white rounded",
+                  attrs: { type: "button" },
+                  on: { click: this.hide }
+                },
+                [_vm._v("\n                    Upload\n                ")]
+              )
+            ])
           ])
-        ])
-      ])
+        ]
+      )
     ],
     1
   )
