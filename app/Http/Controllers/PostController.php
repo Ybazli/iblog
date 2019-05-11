@@ -49,9 +49,10 @@ class PostController extends Controller
      * @param StorePost $request
      * @return void
      */
-    public function store(StorePost $request)
+    public function store(Request $request)
     {
-        $request->validated();
+        //StorePost
+        //$request->validated();
         return $request->all();
 
     }

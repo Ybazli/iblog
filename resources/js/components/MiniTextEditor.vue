@@ -8,7 +8,9 @@
 </template>
 
 <script>
-    import Quill from 'quill';
+    import { ImageResize } from 'quill-image-resize-module';
+    import { ImageDrop } from 'quill-image-drop-module';
+    Quill.register('modules/imageDrop', ImageDrop);
 
     export default {
         name: "MiniTextEditor.vue",
@@ -25,10 +27,11 @@
             'data'
         ],
         mounted() {
+
             const icons = Quill.import('ui/icons');
             this.editor = new Quill('.editor', {
                 modules: {
-                    // imageDrop: true,
+                    imageDrop: true,
                     syntax: true,
                     toolbar: [
                         ['bold', 'italic', 'underline', 'strike', 'code'],
@@ -36,6 +39,14 @@
                         [{'list': 'ordered'}, {'list': 'bullet'}, 'link'],
                         ['blockquote', 'code-block', 'image'],
                     ],
+                    imageResize: {
+                        displayStyles: {
+                            backgroundColor: 'black',
+                            border: 'none',
+                            color: 'white'
+                        },
+                        modules: [ 'Resize', 'DisplaySize', 'Toolbar' ]
+                    }
                 },
                 theme: 'bubble',
                 scrollingContainer: 'html, body',
@@ -79,8 +90,6 @@
                 const fd = new FormData();
                 fd.append('image', file);
                 axios.post(this.imageUplaodUrl , fd).then((e) =>{
-                    // url = JSON.parse(e);
-                    console.log(e.data);
                     this.insertToEditor(e.data);
                 })
             },
