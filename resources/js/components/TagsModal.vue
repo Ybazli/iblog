@@ -48,10 +48,16 @@
             }
         },
         props:[
-            'tags'
+            'tags',
+            'data'
         ],
         components:{
             VModal , Multiselect
+        },
+        mounted(){
+            if(this.data && this.data.length){
+                this.value = JSON.parse(this.data);
+            }
         },
         methods: {
             show () {

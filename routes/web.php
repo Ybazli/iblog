@@ -24,7 +24,7 @@ Route::prefix('blog')->group(function () {
     Route::get('posts/create', 'PostController@create')->name('posts.create');
     Route::post('posts/create', 'PostController@store')->name('posts.store');
     Route::get('posts/edit/{post}', 'PostController@edit')->name('posts.edit');
-    Route::patch('posts/edit/{post}', 'PostController@update')->name('posts.update');
+    Route::post('posts/edit/{post}', 'PostController@update')->name('posts.update');
     Route::delete('posts/{post}', 'PostController@delete')->name('posts.delete');
     Route::post('posts/create/image-upload' , 'PostController@imageUpload')->name('posts.image.upload');
 

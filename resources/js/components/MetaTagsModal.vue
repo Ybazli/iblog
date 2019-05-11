@@ -57,6 +57,9 @@
 <script>
     export default {
         name: "MetaTagsModal.vue",
+        props:[
+            'data'
+        ],
         data(){
             return {
                 meta:'',
@@ -82,6 +85,11 @@
                     "keywords" : this.keywords
                 }];
                 this.meta = JSON.stringify(jsonData[0]);
+            }
+        },
+        mounted() {
+            if(this.data && this.data.length){
+                //sync props data with component data here
             }
         }
     }

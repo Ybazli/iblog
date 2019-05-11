@@ -53,12 +53,20 @@
         components: {
             VModel
         },
+        props: [
+            'data'
+        ],
         data() {
             return {
                 image: '/images/assets/upload-icon.png',
                 uploadPath: '/blog/posts/create/image-upload',
                 filePath: '',
                 file: ''
+            }
+        },
+        mounted() {
+            if (this.data && this.data != null) {
+                this.image = '/' + this.data;
             }
         },
         methods: {
@@ -84,7 +92,8 @@
             },
 
             beforeClose() {
-                this.uploadImage(this.file);
+                if (!this.file) return;
+                    this.uploadImage(this.file);
             },
 
             uploadImage(file) {

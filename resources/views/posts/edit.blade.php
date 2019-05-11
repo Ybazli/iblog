@@ -9,7 +9,7 @@
                 /<a href="/blog" class="text-grey-light no-underline hover:text-grey-dark">
                     Blog
                 </a>
-                / Create a Post
+                / {{ $post->title }}
             </p>
         </div>
         <div>
@@ -18,26 +18,27 @@
 
         </div>
     </div>
-    <form action="{{ route('posts.store') }}" method="post">
+    <form action="{{ route('posts.update' , $post) }}" method="post">
 
         @csrf
 
-        <category-modal cats="{{ $categories }}"></category-modal>
+        <category-modal cats="{{ $categories }}" data="{{ $post->category }}"></category-modal>
 
-        <tags-modal tags="{{ $tags }}"></tags-modal>
+        <tags-modal tags="{{ $tags }}" data="{{ $post->tags }}"></tags-modal>
 
-        <featured-image-upload-modal></featured-image-upload-modal>
+        <featured-image-upload-modal data="{{ $post->image }}"></featured-image-upload-modal>
 
         <meta-tags-modal></meta-tags-modal>
 
         <div class="my-5">
             <input type="text"
                    name="title"
+                   value="{{ $post->title }}"
                    class="w-full py-5 pl-5 rounded font-serif text-lg"
                    placeholder="Title">
         </div>
 
-        <mini-text-editor></mini-text-editor>
+        <mini-text-editor data="{{ $post->body }}"></mini-text-editor>
 
         <div class="my-5">
             <button type="submit"

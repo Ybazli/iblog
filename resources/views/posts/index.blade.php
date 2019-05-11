@@ -26,7 +26,7 @@
                             </ul>
                         </div>
                         <div>
-                            <a href="#">Edit</a>
+                            <a href="{{ route('posts.edit' , $post) }}">Edit</a>
                             <a href="#">Remove</a>
                         </div>
                     </div>

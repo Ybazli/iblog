@@ -1797,7 +1797,7 @@ Vue.use(vue_js_modal__WEBPACK_IMPORTED_MODULE_0___default.a);
       options: JSON.parse(this.cats)
     };
   },
-  props: ['cats'],
+  props: ['cats', 'data'],
   components: {
     VModal: vue_js_modal__WEBPACK_IMPORTED_MODULE_0___default.a,
     Multiselect: vue_multiselect__WEBPACK_IMPORTED_MODULE_1___default.a
@@ -1810,7 +1810,11 @@ Vue.use(vue_js_modal__WEBPACK_IMPORTED_MODULE_0___default.a);
       this.$modal.hide('categoryModal');
     }
   },
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    if (this.data && this.data.length) {
+      this.value = JSON.parse(this.data);
+    }
+  }
 });
 
 /***/ }),
@@ -1879,6 +1883,7 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     VModel: vue_js_modal__WEBPACK_IMPORTED_MODULE_0___default.a
   },
+  props: ['data'],
   data: function data() {
     return {
       image: '/images/assets/upload-icon.png',
@@ -1886,6 +1891,11 @@ __webpack_require__.r(__webpack_exports__);
       filePath: '',
       file: ''
     };
+  },
+  mounted: function mounted() {
+    if (this.data && this.data != null) {
+      this.image = '/' + this.data;
+    }
   },
   methods: {
     show: function show() {
@@ -1908,6 +1918,7 @@ __webpack_require__.r(__webpack_exports__);
       };
     },
     beforeClose: function beforeClose() {
+      if (!this.file) return;
       this.uploadImage(this.file);
     },
     uploadImage: function uploadImage(file) {
@@ -1993,6 +2004,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MetaTagsModal.vue",
+  props: ['data'],
   data: function data() {
     return {
       meta: '',
@@ -2018,6 +2030,10 @@ __webpack_require__.r(__webpack_exports__);
         "keywords": this.keywords
       }];
       this.meta = JSON.stringify(jsonData[0]);
+    }
+  },
+  mounted: function mounted() {
+    if (this.data && this.data.length) {//sync props data with component data here
     }
   }
 });
@@ -2055,6 +2071,7 @@ __webpack_require__.r(__webpack_exports__);
       imageUrl: ''
     };
   },
+  props: ['data'],
   mounted: function mounted() {
     var _this = this;
 
@@ -2083,6 +2100,11 @@ __webpack_require__.r(__webpack_exports__);
     this.editor.getModule('toolbar').addHandler('image', function () {
       _this.selectLocalImage();
     });
+
+    if (this.data && this.data.length) {
+      this.body = this.data;
+      this.editor.root.innerHTML = this.data;
+    }
   },
   methods: {
     updateBody: function updateBody() {
@@ -2252,10 +2274,15 @@ Vue.use(vue_js_modal__WEBPACK_IMPORTED_MODULE_0___default.a);
       options: JSON.parse(this.tags)
     };
   },
-  props: ['tags'],
+  props: ['tags', 'data'],
   components: {
     VModal: vue_js_modal__WEBPACK_IMPORTED_MODULE_0___default.a,
     Multiselect: vue_multiselect__WEBPACK_IMPORTED_MODULE_1___default.a
+  },
+  mounted: function mounted() {
+    if (this.data && this.data.length) {
+      this.value = JSON.parse(this.data);
+    }
   },
   methods: {
     show: function show() {

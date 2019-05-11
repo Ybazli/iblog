@@ -52,7 +52,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
 //        $request->validated();
-        return $request->all(); 
+        return $request->all();
 
     }
 
@@ -73,9 +73,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        $categories = Category::all();
+        $tags = Tag::all();
+        return view('posts.edit' , compact('post' , 'categories' , 'tags'));
     }
 
     /**
@@ -87,7 +89,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return $request->all();
     }
 
     /**

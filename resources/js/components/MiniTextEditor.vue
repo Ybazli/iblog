@@ -21,6 +21,9 @@
 
             }
         },
+        props:[
+            'data'
+        ],
         mounted() {
             const icons = Quill.import('ui/icons');
             this.editor = new Quill('.editor', {
@@ -42,6 +45,11 @@
             this.editor.getModule('toolbar').addHandler('image', () => {
                 this.selectLocalImage();
             });
+
+            if(this.data && this.data.length) {
+                this.body = this.data;
+                this.editor.root.innerHTML = this.data;
+            }
 
 
         },
