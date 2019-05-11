@@ -1,15 +1,24 @@
 <template>
     <div>
+
         <input type="hidden" name="tags" :value='this.tagId'>
-        <modal name="tagsModal">
+
+        <modal name="tagsModal"
+               height="auto">
+
             <div class="p-5">
                 <h3 class="text-grey-dark my-5">Select Tags</h3>
+
                 <multiselect v-model="value" :options="options"
                              @select="pushId"
+                             @tag="addTag"
                              @remove="removeId"
                              :multiple="true"
                              :taggable="true"
-                             track-by="id" label="name"></multiselect>
+                             class="mt-10"
+                             track-by="id"
+                             label="name"></multiselect>
+
                 <div class="mt-24">
                     <button @click="this.hide"
                             type="button"
@@ -17,7 +26,9 @@
                         Select
                     </button>
                 </div>
+
             </div>
+
         </modal>
     </div>
 </template>
@@ -25,7 +36,9 @@
 <script>
     import VModal from 'vue-js-modal';
     import Multiselect from 'vue-multiselect';
+
     Vue.use(VModal);
+
     export default {
         data(){
             return {
@@ -57,10 +70,16 @@
                 return arr.filter(function(ele){
                     return ele != value;
                 });
-
+            },
+            addTag (newTag) {
+                const tag = {
+                    name: newTag,
+                    id: newTag
+                }
+                this.options.push(tag);
+                this.value.push(tag);
+                this.tagId.push(tag.id);
             }
-        },
-        mounted() {
         }
     }
 </script>

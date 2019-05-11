@@ -56,7 +56,7 @@ Route::get('logout' , function(){
    return redirect()->route('login');
 });
 
-//Route::get('image-upload' , function(){
-//    return view('auth.image-upload');
-//});
-//Route::post('image-upload' , 'PostController@imageUpload')->name('image.upload');
+Route::get('ybazli' , function(){
+    return extractId('1,2,3 , hello');
+});
+

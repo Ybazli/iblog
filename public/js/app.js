@@ -2132,6 +2132,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 Vue.use(vue_js_modal__WEBPACK_IMPORTED_MODULE_0___default.a);
@@ -2165,9 +2176,17 @@ Vue.use(vue_js_modal__WEBPACK_IMPORTED_MODULE_0___default.a);
       return arr.filter(function (ele) {
         return ele != value;
       });
+    },
+    addTag: function addTag(newTag) {
+      var tag = {
+        name: newTag,
+        id: newTag
+      };
+      this.options.push(tag);
+      this.value.push(tag);
+      this.tagId.push(tag.id);
     }
-  },
-  mounted: function mounted() {}
+  }
 });
 
 /***/ }),
@@ -36959,7 +36978,7 @@ var render = function() {
         domProps: { value: this.tagId }
       }),
       _vm._v(" "),
-      _c("modal", { attrs: { name: "tagsModal" } }, [
+      _c("modal", { attrs: { name: "tagsModal", height: "auto" } }, [
         _c(
           "div",
           { staticClass: "p-5" },
@@ -36969,6 +36988,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("multiselect", {
+              staticClass: "mt-10",
               attrs: {
                 options: _vm.options,
                 multiple: true,
@@ -36976,7 +36996,7 @@ var render = function() {
                 "track-by": "id",
                 label: "name"
               },
-              on: { select: _vm.pushId, remove: _vm.removeId },
+              on: { select: _vm.pushId, tag: _vm.addTag, remove: _vm.removeId },
               model: {
                 value: _vm.value,
                 callback: function($$v) {
