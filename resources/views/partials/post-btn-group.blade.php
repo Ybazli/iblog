@@ -17,7 +17,7 @@
 </button>
 
 <button title="Meta Tags"
-        @click="$modal.show('tagsModal')"
+        @click="$modal.show('metaTagsModal')"
         class="text-grey-dark mr-2">
     <i class="fas fa-code"></i>
 </button>

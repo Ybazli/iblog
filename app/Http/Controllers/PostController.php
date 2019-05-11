@@ -52,10 +52,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
 //        $request->validated();
-        return $request->all();
-        $tags = explode(',' ,$request->tags);
-        $tag = Tag::where('id' , $tags[0])->first();
-        return $tag;
+        return $request->all(); 
 
     }
 
@@ -103,11 +100,11 @@ class PostController extends Controller
 
     public function imageUpload()
     {
-//        return request()->file('image');
-//        return \request()->all();
+        $this->validate(request() , [
+           'file' => 'require|mime:jpeg,png,svg,jpg'
+        ]);
         $file = request()->file('image')->store('/posts-image', 'public_uploads');
         return 'uploads/'.$file;
-        return response()->json(['image' => storage_path('posts-image/AWX4MWGPSxtPSjiuntt4u5jxT0H6ThzG1aBE7OPf.jpeg')] , 200);
     }
 
 

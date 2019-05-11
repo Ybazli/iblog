@@ -25,7 +25,7 @@ Vue.component('tags-modal' , require('./components/TagsModal.vue').default);
 
 Vue.component('mini-text-editor' , require('./components/MiniTextEditor.vue').default);
 Vue.component('featured-image-upload-modal' , require('./components/FeaturedImageUploadModal.vue').default);
-
+Vue.component('meta-tags-modal' , require('./components/MetaTagsModal.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

@@ -21,6 +21,7 @@
         <category-modal cats="{{ $categories }}"></category-modal>
         <tags-modal tags="{{ $tags }}"></tags-modal>
         <featured-image-upload-modal></featured-image-upload-modal>
+        <meta-tags-modal></meta-tags-modal>
 
         <div class="my-5">
             <input type="text"
