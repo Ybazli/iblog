@@ -109,7 +109,6 @@ class PostController extends Controller
     public function update(PostRequest $request, Post $post)
     {
         $request->validated();
-        return $request->all();
         $data = $request->only('title', 'body', 'image', 'category_id', 'meta');
 
         $tags = extractId($request->tags);

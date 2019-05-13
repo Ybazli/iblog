@@ -1926,6 +1926,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     if (this.data && this.data != null) {
       this.image = '/' + this.data;
+      this.filePath = this.data;
     }
   },
   methods: {

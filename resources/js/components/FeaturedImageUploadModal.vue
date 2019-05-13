@@ -67,6 +67,7 @@
         mounted() {
             if (this.data && this.data != null) {
                 this.image = '/' + this.data;
+                this.filePath = this.data;
             }
         },
         methods: {

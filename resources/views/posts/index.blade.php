@@ -7,9 +7,8 @@
                     <div class="relative bg-white rounded shadow mb-4 mr-4"
                          style="height: 280px">
                         <div class="text-center bg-grey-lightest">
-                            <img src="{{ asset('images/assets/no-image.png') }}"
-                                 alt="no-image"
-                                 width="150px">
+                            <img src="{{ $post->image ? $post->image : asset('images/assets/no-image.png') }}"
+                                 alt="{{ $post->image ? $post->title : 'no-image' }}" width="150px">
                         </div>
                         <h3 class="border-l-4 border-indigo-light pl-2 py-2">
                             <a href="{{ route('posts.edit' , $post) }}"
