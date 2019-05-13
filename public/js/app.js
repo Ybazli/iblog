@@ -1875,6 +1875,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Dropdown.vue",
   data: function data() {
@@ -40266,7 +40267,7 @@ var render = function() {
             }
           ],
           staticClass:
-            "dropdown-menu absolute pin-r mt-3 bg-white p-5 shadow rounded"
+            "dropdown-menu absolute pin-r mt-3 bg-white p-5 shadow rounded w-full"
         },
         [_vm._t("default")],
         2

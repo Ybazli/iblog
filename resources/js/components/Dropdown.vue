@@ -7,7 +7,8 @@
             <slot name="trigger"></slot>
         </div>
 
-        <div class="dropdown-menu absolute pin-r mt-3 bg-white p-5 shadow rounded" v-show="show">
+        <div class="dropdown-menu absolute pin-r mt-3 bg-white p-5 shadow rounded w-full"
+             v-show="show">
             <slot></slot>
         </div>
 
