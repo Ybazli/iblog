@@ -12,7 +12,7 @@ Vue.component('mini-text-editor' , require('./components/MiniTextEditor.vue').de
 Vue.component('featured-image-upload-modal' , require('./components/FeaturedImageUploadModal.vue').default);
 Vue.component('meta-tags-modal' , require('./components/MetaTagsModal.vue').default);
 Vue.component('alert' , require('./components/Alert.vue').default);
-
+Vue.component('dropdown' , require('./components/Dropdown.vue').default);
 const app = new Vue({
     el: '#app',
 });
