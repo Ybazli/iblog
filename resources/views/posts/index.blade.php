@@ -1,8 +1,11 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        @include('partials.search')
+
+        @include('partials.search' , ['type' => 'posts'])
+
         <div class="flex flex-wrap">
+
             @foreach($posts as $post)
                 <div class="w-1/3">
                     <div class="relative bg-white rounded shadow mb-4 mr-4"
@@ -50,9 +53,12 @@
                     </div>
                 </div>
             @endforeach
+
         </div>
+
         <div class="text-center">
             {{ $posts->links() }}
         </div>
+
     </div>
 @endsection
