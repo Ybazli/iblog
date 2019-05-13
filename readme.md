@@ -1,6 +1,6 @@
 # #iBlog
 
-iBlog is minimal Blog application base on the Laravel & Vue js and Tailwind css.
+iBlog is a minimal Blog application base on the Laravel & Vue js and Tailwind css.
 
 **Note** : its not compelete yet  buti working on it to finish it ASAP.
 

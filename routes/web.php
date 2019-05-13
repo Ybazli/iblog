@@ -16,6 +16,9 @@ Route::get('/', function () {
 });
 Route::prefix('blog')->group(function () {
 
+    //search
+    Route::get('blog' , 'SearchController@search')->name('search');
+
     //posts links
     Route::get('/', 'PostController@index')->name('posts.index');
     Route::get('/{post}', 'PostController@show')->name('posts.show');

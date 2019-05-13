@@ -1870,12 +1870,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Dropdown.vue",
   data: function data() {
     return {
       show: false
     };
+  },
+  watch: {
+    show: function show(_show) {
+      if (_show) {
+        document.addEventListener('click', this.close);
+      }
+    }
+  },
+  methods: {
+    close: function close(event) {
+      if (!event.target.closest('.dropdown')) {
+        this.show = false;
+        document.removeEventListener('click', this.close);
+      }
+    }
   }
 });
 
@@ -40214,37 +40234,45 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "dropdown" }, [
-    _c(
-      "div",
-      {
-        on: {
-          click: function($event) {
-            _vm.show = !_vm.show
+  return _c(
+    "div",
+    {
+      staticClass: "dropdown relative",
+      attrs: { "aria-haspopup": "true", "aria-expanded": "true" }
+    },
+    [
+      _c(
+        "div",
+        {
+          on: {
+            click: function($event) {
+              _vm.show = !_vm.show
+            }
           }
-        }
-      },
-      [_vm._t("trigger")],
-      2
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.show,
-            expression: "show"
-          }
-        ],
-        staticClass: "dropdown-menu"
-      },
-      [_vm._t("default")],
-      2
-    )
-  ])
+        },
+        [_vm._t("trigger")],
+        2
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.show,
+              expression: "show"
+            }
+          ],
+          staticClass:
+            "dropdown-menu absolute pin-r mt-3 bg-white p-5 shadow rounded"
+        },
+        [_vm._t("default")],
+        2
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
