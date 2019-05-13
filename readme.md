@@ -38,11 +38,13 @@ here some good point form iblog:
 
 Coming soon:
 
-[]-Remove some colomn on post table
+[]-routes clean up
+
+[]-Remove some column on post table
 
 []-Search Area
 
-[]-Dropdown component
+[x]-Dropdown component
 
 []-Category & Tag C.R.U.D
 
