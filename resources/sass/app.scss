@@ -16,3 +16,15 @@
   .link:hover{
     @apply .text-indigo-light;
   }
+.pagination{
+  @apply .list-reset .my-8 .text-lg;
+}
+.pagination li{
+  @apply .inline p-2;
+}
+.pagination li a{
+  @apply .no-underline .text-indigo-light;
+}
+.page-link{
+  @apply .text-grey-dark;
+}

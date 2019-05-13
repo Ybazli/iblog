@@ -7832,6 +7832,28 @@ table {
   color: #7886d7;
 }
 
+.pagination {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 1.125rem;
+}
+
+.pagination li {
+  display: inline;
+  padding: .5rem;
+}
+
+.pagination li a {
+  text-decoration: none;
+  color: #7886d7;
+}
+
+.page-link {
+  color: #8795a1;
+}
+
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;

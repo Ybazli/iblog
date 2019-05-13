@@ -6,10 +6,20 @@ use App\Post;
 use Faker\Generator as Faker;
 
 $factory->define(Post::class, function (Faker $faker) {
-    return [
+    $data = [
         'title' => $faker->sentence,
-        'body' => $faker->paragraph,
+        'description' => $faker->paragraph,
+    ];
+    return [
+        'title' => $data['title'],
+        'body' => $data['description'],
         'short_description' => $faker->text,
         'category_id' => factory('App\Category')->create()->id,
+        'meta' => json_encode([
+            'title' => $data['title'],
+            'description' => str_limit($data['description'] , 100),
+            'keywords' => '',
+            'author' => ''
+        ]),
     ];
 });

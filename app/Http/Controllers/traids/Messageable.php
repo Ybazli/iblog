@@ -47,9 +47,9 @@ trait Messageable
      */
     private function message($model , $job)
     {
-        return with([
+        return [
             'message' => "The {$model} was {$job}d successfully."
-            ]);
+            ];
     }
 
 

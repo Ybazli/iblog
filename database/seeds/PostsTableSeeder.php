@@ -9,6 +9,8 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Post' , 50)->create(['user_id' => 1]);
+        factory('App\Post' , 50)->create(['user_id' => 1])->each(function($post){
+            $post->tags()->attach(factory('App\Tag')->create());
+        });
     }
 }

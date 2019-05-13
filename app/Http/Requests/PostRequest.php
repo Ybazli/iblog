@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePost extends FormRequest
+class PostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,7 +27,7 @@ class StorePost extends FormRequest
             'title' => 'required',
             'body' => 'required|min:50',
             'slug' => 'unique:posts:slug',
-            'category_id' => 'required|exists:connection.categories,id',
+            'category_id' => 'required',
         ];
     }
 }

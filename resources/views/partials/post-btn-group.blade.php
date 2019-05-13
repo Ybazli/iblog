@@ -1,9 +1,14 @@
 @if(isset($post))
 
-    <button title="Delete this article"
-            class="text-red-light mr-2">
-        <i class="fas fa-trash-alt"></i>
-    </button>
+    <form action="{{ route('posts.delete' , $post) }}" method="post" class="inline-block">
+        @csrf
+        {{ method_field('DELETE') }}
+        <button title="Delete this article"
+                type="submit"
+                class="text-red-light mr-2">
+            <i class="fas fa-trash-alt"></i>
+        </button>
+    </form>
 
 @endif
 

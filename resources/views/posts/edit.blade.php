@@ -28,7 +28,7 @@
 
         <featured-image-upload-modal data="{{ $post->image }}"></featured-image-upload-modal>
 
-        <meta-tags-modal></meta-tags-modal>
+        <meta-tags-modal data="{{ $post->meta }}"></meta-tags-modal>
 
         <div class="my-5">
             <input type="text"

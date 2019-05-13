@@ -22,22 +22,23 @@
 
         @csrf
 
-        <category-modal cats="{{ $categories }}"></category-modal>
+        <category-modal cats="{{ $categories }}" data="{{ old('category_id') }}"></category-modal>
 
-        <tags-modal tags="{{ $tags }}"></tags-modal>
+        <tags-modal tags="{{ $tags }}" data="{{ old('tags') }}"></tags-modal>
 
-        <featured-image-upload-modal></featured-image-upload-modal>
+        <featured-image-upload-modal data="{{ old('image') }}"></featured-image-upload-modal>
 
-        <meta-tags-modal></meta-tags-modal>
+        <meta-tags-modal data="{{ old('meta') }}"></meta-tags-modal>
 
         <div class="my-5">
             <input type="text"
                    name="title"
+                   value="{{ old('title') }}"
                    class="w-full py-5 pl-5 rounded font-serif text-2xl"
                    placeholder="Title">
         </div>
 
-        <mini-text-editor></mini-text-editor>
+        <mini-text-editor data="{{ old('body') }}"></mini-text-editor>
 
         <div class="my-5">
             <button type="submit"

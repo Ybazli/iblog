@@ -89,7 +89,12 @@
         },
         mounted() {
             if(this.data && this.data.length){
-                //sync props data with component data here
+                let data = JSON.parse(this.data);
+                this.meta = data;
+                this.title = data.title;
+                this.description = data.description;
+                this.author = data.author;
+                this.keywords = data.keywords;
             }
         }
     }

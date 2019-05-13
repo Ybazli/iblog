@@ -17,7 +17,6 @@ Route::get('/', function () {
 Route::prefix('blog')->group(function () {
 
     //posts links
-//    Route::get('/', 'PostController@index')->name('posts.index');
     Route::get('/', 'PostController@index')->name('posts.index');
     Route::get('/{post}', 'PostController@show')->name('posts.show');
 
@@ -26,7 +25,7 @@ Route::prefix('blog')->group(function () {
     Route::get('posts/edit/{post}', 'PostController@edit')->name('posts.edit');
     Route::post('posts/edit/{post}', 'PostController@update')->name('posts.update');
     Route::delete('posts/{post}', 'PostController@delete')->name('posts.delete');
-    Route::post('posts/create/image-upload' , 'PostController@imageUpload')->name('posts.image.upload');
+    Route::post('posts/create/image-upload' , 'ImageController@store')->name('posts.image.upload');
 
 
     //category links
@@ -56,7 +55,4 @@ Route::get('logout' , function(){
    return redirect()->route('login');
 });
 
-Route::get('ybazli' , function(){
-    return extractId('1,2,3 , hello');
-});
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Http\Controllers\Traids\Messageable;
-use App\Http\Requests\StorePost;
+use App\Http\Requests\PostRequest;
 use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
@@ -25,9 +25,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(20);
+        $posts = Post::latest()->paginate(20);
 
-        return view('posts.index' , compact('posts'));
+        return view('posts.index', compact('posts'));
 
     }
 
@@ -40,27 +40,45 @@ class PostController extends Controller
     {
         $categories = Category::all();
         $tags = Tag::all();
-        return view('posts.create' , compact('categories' , 'tags'));
+        return view('posts.create', compact('categories', 'tags'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param StorePost $request
+     * @param PostRequest $request
      * @return void
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         //StorePost
-        //$request->validated();
-        return $request->all();
+        $request->validated();
+
+        $data = $request->only('title', 'body', 'image', 'category_id', 'meta');
+        $data['user_id'] = auth()->user()->id;
+
+        $tags = extractId($request->tags);
+        $post = Post::create($data);
+
+        foreach ($tags as $tag) {
+            $oldTag = Tag::find($tag);
+            if ($oldTag) {
+                $post->tags()->attach($oldTag->id);
+            } else {
+                $createTag = Tag::create(['name' => $tag]);
+                $post->tags()->attach($createTag->id);
+            }
+        }
+        return redirect()->route('posts.index')
+            ->with($this->createMessage('Post'));
+
 
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show(Post $post)
@@ -71,45 +89,60 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
     {
         $categories = Category::all();
         $tags = Tag::all();
-        return view('posts.edit' , compact('post' , 'categories' , 'tags'));
+        return view('posts.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param PostRequest $request
+     * @param Post $post
+     * @return void
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, Post $post)
     {
+        $this->validated();
 
-        return $request->all();
+        $data = $request->only('title', 'body', 'image', 'category_id', 'meta');
+        $data['user_id'] = auth()->user()->id;
+
+        $tags = extractId($request->tags);
+        $post->update($data);
+
+        foreach ($tags as $tag) {
+            $oldTag = Tag::find($tag);
+            if ($oldTag) {
+                $post->tags()->sync($oldTag->id);
+            } else {
+                $createTag = Tag::create(['name' => $tag]);
+                $post->tags()->attach($createTag->id);
+            }
+        }
+        return redirect()->route('posts.index')
+            ->with($this->updateMessage('Post'));
+
     }
 
     /**
      * Remove the specified resource from storage.
-     * @param int $id
+     * @param Post $post
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
-    public function destroy($id)
+    public function delete(Post $post)
     {
+        $post->delete();
+        return redirect()->route('posts.index')
+            ->with($this->deleteMessage('post'));
     }
 
-    public function imageUpload()
-    {
-        $this->validate(request() , [
-           'file' => 'require|mime:jpeg,png,svg,jpg'
-        ]);
-        $file = request()->file('image')->store('/posts-image', 'public_uploads');
-        return 'uploads/'.$file;
-    }
 
 
 }

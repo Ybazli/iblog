@@ -2064,7 +2064,13 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    if (this.data && this.data.length) {//sync props data with component data here
+    if (this.data && this.data.length) {
+      var data = JSON.parse(this.data);
+      this.meta = data;
+      this.title = data.title;
+      this.description = data.description;
+      this.author = data.author;
+      this.keywords = data.keywords;
     }
   }
 });
