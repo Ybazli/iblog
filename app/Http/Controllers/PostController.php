@@ -108,10 +108,9 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, Post $post)
     {
-        $this->validated();
-
+        $request->validated();
+        return $request->all();
         $data = $request->only('title', 'body', 'image', 'category_id', 'meta');
-        $data['user_id'] = auth()->user()->id;
 
         $tags = extractId($request->tags);
         $post->update($data);

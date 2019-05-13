@@ -95,6 +95,7 @@
                 this.description = data.description;
                 this.author = data.author;
                 this.keywords = data.keywords;
+                this.generateMetaJson();
             }
         }
     }

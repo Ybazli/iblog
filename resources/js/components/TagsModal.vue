@@ -57,6 +57,10 @@
         mounted(){
             if(this.data && this.data.length){
                 this.value = JSON.parse(this.data);
+                this.value.forEach((item)=>{
+                   this.tagId.push(item.id);
+                });
+
             }
         },
         methods: {

@@ -2071,6 +2071,7 @@ __webpack_require__.r(__webpack_exports__);
       this.description = data.description;
       this.author = data.author;
       this.keywords = data.keywords;
+      this.generateMetaJson();
     }
   }
 });
@@ -2325,8 +2326,13 @@ Vue.use(vue_js_modal__WEBPACK_IMPORTED_MODULE_0___default.a);
     Multiselect: vue_multiselect__WEBPACK_IMPORTED_MODULE_1___default.a
   },
   mounted: function mounted() {
+    var _this = this;
+
     if (this.data && this.data.length) {
       this.value = JSON.parse(this.data);
+      this.value.forEach(function (item) {
+        _this.tagId.push(item.id);
+      });
     }
   },
   methods: {
