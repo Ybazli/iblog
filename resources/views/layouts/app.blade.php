@@ -46,7 +46,7 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'UA-140159553-1');
+        gtag('config', "{{ config('iblog.google_tag') }}");
     </script>
 
 
