@@ -13,6 +13,7 @@ Vue.component('featured-image-upload-modal' , require('./components/FeaturedImag
 Vue.component('meta-tags-modal' , require('./components/MetaTagsModal.vue').default);
 Vue.component('alert' , require('./components/Alert.vue').default);
 Vue.component('dropdown' , require('./components/Dropdown.vue').default);
+Vue.component('dashboard' , require('./components/Dashboard.vue').default);
 const app = new Vue({
     el: '#app',
 });

@@ -19,6 +19,9 @@ Route::prefix('blog')->group(function () {
     //search
     Route::get('blog' , 'SearchController@search')->name('search');
 
+    //dashboard
+    Route::get('/dashboard' , 'DashboardController@index');
+
     //posts links
     Route::get('/', 'PostController@index')->name('posts.index');
     Route::get('/{post}', 'PostController@show')->name('posts.show');
