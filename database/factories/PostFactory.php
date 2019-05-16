@@ -13,7 +13,6 @@ $factory->define(Post::class, function (Faker $faker) {
     return [
         'title' => $data['title'],
         'body' => $data['description'],
-        'short_description' => $faker->text,
         'category_id' => factory('App\Category')->create()->id,
         'meta' => json_encode([
             'title' => $data['title'],
