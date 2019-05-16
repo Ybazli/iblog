@@ -15,7 +15,7 @@ abstract class TestCase extends BaseTestCase
 
     protected function loginAsAdmin()
     {
-        return $this->actingAs(factory('App\User')->create(['is_admin' => true]));
+        return $this->actingAs(factory('App\User')->create(['email' => config('iblog.admins')[0]]));
     }
 
     protected function create($class , $params = [])

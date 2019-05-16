@@ -2,7 +2,7 @@
 @section('content')
     <div class="flex justify-between">
         <div>
-            <p class="text-grey-light">
+            <p class="text-grey-light text-sm">
                 <a href="/blog" class="text-grey-light no-underline hover:text-grey-dark">
                     Dashboard
                 </a>

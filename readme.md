@@ -49,7 +49,7 @@ here some good point form iblog:
 
 
 
-### Tasks:
+### Tasks:(updatable)
 
 - Search Area
 - Dropdown component
@@ -57,20 +57,24 @@ here some good point form iblog:
 - Google Analytic API for dashboard
 - Admin Middleware dosent work
 - slug uniqueable
+- Prefix for admin and blog is config file and each one have a helper for call
+- add addTag method in post model
 
 []-Write more test case
 
+[]- Refactor Post addTag method
+
 []- visual config file and setting
 
-[]-admin email address is an array in config file
+- admin email address is an array in config file
 
-[]-change admin middleware and remove is_admin in user table
+- change admin middleware and remove is_admin in user table
 
-[]- modify isAdmin method
+- modify isAdmin method
 
 []-routes clean up
 
-[]-Remove some colomn on post table
+- Remove some colomn on post table
 
 []-Category & Tag C.R.U.D
 
@@ -95,6 +99,8 @@ here some good point form iblog:
 []-RTL version ?! Translation ?! Maybe!!
 
 []-And of course the blog theme
+
+[]-tooltips for icon button
 
 
 

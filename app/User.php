@@ -47,6 +47,6 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        return $this->is_admin;
+        return in_array($this->email , config('iblog.admins'));
     }
 }

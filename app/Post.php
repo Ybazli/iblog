@@ -73,4 +73,18 @@ class Post extends Model
             ->where('id', '<>', $id)
             ->get();
     }
+
+    public function addTag($tags = [])
+    {
+        foreach ($tags as $index => $tag) {
+            $oldTag = Tag::find($tag);
+            if ($oldTag) {
+                $this->tags()->attach($oldTag->id);
+            } else {
+                $createTag = Tag::create(['name' => $tag]);
+                $this->tags()->attach($createTag->id);
+            }
+        }
+
+    }
 }

@@ -11,7 +11,7 @@
 
             <ul class="list-reset inline-flex ml-5">
                 <li class="mr-5">
-                    <a href="/blog" class="link ">Blog</a>
+                    <a href="{{ route('posts.index') }}" class="link ">Blog</a>
                 </li>
             </ul>
         </div>

@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\Post;
+use App\Tag;
 use App\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
@@ -42,4 +43,5 @@ class PostTest extends TestCase
 
         $this->assertArrayHasKey('tags' , $post);
     }
+
 }

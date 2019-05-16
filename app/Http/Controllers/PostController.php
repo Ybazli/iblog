@@ -7,7 +7,7 @@ use App\Http\Controllers\Traids\Messageable;
 use App\Http\Requests\PostRequest;
 use App\Post;
 use App\Tag;
-use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class PostController extends Controller
 {
@@ -60,16 +60,7 @@ class PostController extends Controller
 
         $tags = extractId($request->tags);
         $post = Post::create($data);
-
-        foreach ($tags as $tag) {
-            $oldTag = Tag::find($tag);
-            if ($oldTag) {
-                $post->tags()->attach($oldTag->id);
-            } else {
-                $createTag = Tag::create(['name' => $tag]);
-                $post->tags()->attach($createTag->id);
-            }
-        }
+        $post->addTag($tags);
         return redirect()->route('posts.index')
             ->with($this->createMessage('Post'));
 
@@ -79,8 +70,8 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param Post $post
+     * @return Response
      */
     public function show(Post $post)
     {
@@ -89,9 +80,8 @@ class PostController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param Post $post
+     * @return view with post categories and tags collection
      */
     public function edit(Post $post)
     {
