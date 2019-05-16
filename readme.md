@@ -45,13 +45,11 @@ here some good point form iblog:
 
 - TDD test 
 
-- some more will came in feature
+- Some more will came in feature
 
 
 
-Coming soon:
-
-
+### Tasks:
 
 - Search Area
 - Dropdown component
