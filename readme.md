@@ -51,6 +51,8 @@ here some good point form iblog:
 
 ### Tasks:(updatable)
 
+**Note**: [] means in progress otherwise is completed
+
 - Search Area
 - Dropdown component
 - Dashboard View
@@ -60,7 +62,7 @@ here some good point form iblog:
 - Prefix for admin and blog is config file and each one have a helper for call
 - add addTag method in post model
 
-[]-Write more test case
+- Write more test case
 
 []- Refactor Post addTag method
 

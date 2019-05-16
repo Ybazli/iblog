@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01813ba2-c11a-4104-9c09-a6639889a787" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/PostFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/PostFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/PostTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/PostTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,10 +47,13 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/database/factories/PostFactory.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+        <entry file="file://$PROJECT_DIR$/readme.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="912">
+                <caret line="114" column="50" selection-start-line="114" selection-start-column="50" selection-end-line="114" selection-end-column="50" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -152,12 +155,12 @@
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/config/iblog.php" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
-        <option value="$PROJECT_DIR$/tests/TestCase.php" />
-        <option value="$PROJECT_DIR$/tests/Unit/PostTest.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_24_003651_create_posts_table.php" />
-        <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/factories/PostFactory.php" />
+        <option value="$PROJECT_DIR$/tests/TestCase.php" />
+        <option value="$PROJECT_DIR$/tests/Unit/PostTest.php" />
+        <option value="$PROJECT_DIR$/readme.md" />
       </list>
     </option>
   </component>
@@ -325,7 +328,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.PostTest.it_post_most_return_with_tags">
+  <component name="RunManager" selected="PHPUnit.PostTest.it_post_has_a_owner">
     <configuration name="PostTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\PostTest" file="$PROJECT_DIR$/tests/Feature/PostTest.php" scope="Class" />
       <method v="2" />
@@ -334,8 +337,8 @@
       <TestRunner class="Tests\Unit\PostTest" file="$PROJECT_DIR$/tests/Unit/PostTest.php" method="it_post_article_most_be_have_unique_slug" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="PostTest.it_post_index_show_latest_post" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\PostTest" file="$PROJECT_DIR$/tests/Feature/PostTest.php" method="it_post_index_show_latest_post" scope="Method" />
+    <configuration name="PostTest.it_post_has_a_owner" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\PostTest" file="$PROJECT_DIR$/tests/Unit/PostTest.php" method="it_post_has_a_owner" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="PostTest.it_post_most_return_with_tags" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -352,11 +355,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.PostTest.it_post_has_a_owner" />
         <item itemvalue="PHPUnit.PostTest.it_post_most_return_with_tags" />
         <item itemvalue="PHPUnit.PostTest.it_post_article_most_be_have_unique_slug" />
         <item itemvalue="PHPUnit.PostTest" />
         <item itemvalue="PHPUnit.PostTest.it_unauthenticated_admin_users_cant_post_a_article_post" />
-        <item itemvalue="PHPUnit.PostTest.it_post_index_show_latest_post" />
       </list>
     </recent_temporary>
   </component>
@@ -382,14 +385,11 @@
       <workItem from="1557779811132" duration="14311000" />
       <workItem from="1557869518992" duration="17121000" />
       <workItem from="1557892821339" duration="777000" />
-      <workItem from="1557907531103" duration="6377000" />
+      <workItem from="1557907531103" duration="9119000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PostTest - 2019.05.15 at 04h 22m 50s.xml">
-      <configuration name="PostTest" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
     <history-entry file="PostTest_it_post_article_most_be_have_unique_slug - 2019.05.15 at 04h 27m 32s.xml">
       <configuration name="PostTest.it_post_article_most_be_have_unique_slug" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
@@ -417,9 +417,12 @@
     <history-entry file="PostTest_it_post_most_return_with_tags - 2019.05.15 at 05h 29m 51s.xml">
       <configuration name="PostTest.it_post_most_return_with_tags" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
+    <history-entry file="PostTest_it_post_has_a_owner - 2019.05.16 at 08h 38m 08s.xml">
+      <configuration name="PostTest.it_post_has_a_owner" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154571000" />
+    <option name="totallyTimeSpent" value="157313000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="537" y="217" width="1449" height="1039" extended-state="0" />
@@ -734,13 +737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Post.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="76" column="38" lean-forward="true" selection-start-line="76" selection-start-column="38" selection-end-line="76" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PostController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -786,37 +782,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/TestCase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/PostTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
-          <folding>
-            <element signature="e#30#43#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_24_003651_create_posts_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="21" column="49" lean-forward="true" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="912">
-            <caret line="112" column="50" selection-start-line="112" selection-start-column="50" selection-end-line="112" selection-end-column="50" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -832,8 +801,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/factories/PostFactory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+        <state relative-caret-position="380">
+          <caret line="12" column="12" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2631">
+          <caret line="76" column="38" lean-forward="true" selection-start-line="76" selection-start-column="38" selection-end-line="76" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/TestCase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="40" column="69" lean-forward="true" selection-start-line="40" selection-start-column="69" selection-end-line="40" selection-end-column="69" />
+          <folding>
+            <element signature="e#25#38#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/PostTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="25" column="76" lean-forward="true" selection-start-line="25" selection-start-column="76" selection-end-line="25" selection-end-column="76" />
+          <folding>
+            <element signature="e#30#47#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="912">
+            <caret line="114" column="50" selection-start-line="114" selection-start-column="50" selection-end-line="114" selection-end-column="50" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

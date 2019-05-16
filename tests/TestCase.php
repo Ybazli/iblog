@@ -2,6 +2,8 @@
 
 namespace Tests;
 
+use App\Post;
+use App\User;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
@@ -31,5 +33,11 @@ abstract class TestCase extends BaseTestCase
     protected function raw($class , $params = [])
     {
         return factory($class)->raw($params);
+    }
+
+    protected function createPostWithUser()
+    {
+        $user = $this->create(User::class);
+        return $this->create(Post::class , ['user_id' => $user->id]);
     }
 }
