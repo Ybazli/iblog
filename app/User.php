@@ -41,6 +41,12 @@ class User extends Authenticatable
 
     public function avatar()
     {
-        return is_null($this->avatar)  ? '/images/users/default-avatar.jpg'  : '/images/users/'.$this->avatar;
+
+        return !$this->avatar ? '/images/users/default-avatar.jpg'  : '/images/users/'.$this->avatar;
+    }
+
+    public function isAdmin()
+    {
+        return $this->is_admin;
     }
 }

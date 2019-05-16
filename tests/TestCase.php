@@ -17,4 +17,19 @@ abstract class TestCase extends BaseTestCase
     {
         return $this->actingAs(factory('App\User')->create(['is_admin' => true]));
     }
+
+    protected function create($class , $params = [])
+    {
+        return factory($class)->create($params);
+    }
+
+    protected function make($class , $params = [])
+    {
+        return factory($class)->make($params);
+    }
+
+    protected function raw($class , $params = [])
+    {
+        return factory($class)->raw($params);
+    }
 }

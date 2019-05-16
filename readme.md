@@ -10,41 +10,69 @@ Its easy to use like every laravel application just follow thease steps:
 
 first clone it go to directory and run:
 
-`composer install`
+```bash
+composer instal
+```
+
+
 
 dont forget to make a .env file and put it database connection details. now generate app key with:
 
-`php artisan key:generate`
+```bach
+php artisan key:generate
+```
+
+
 
 after set your database details in your .env file now migrate tables if you want to put some dummy data in database use with —seed flag:
 
-`php artisan migrate --seed`
+```ba
+php artisan migrate --seed
+```
+
+
 
 now go to iblog.test/blog and surf in it. 
 
 here some good point form iblog:
 
--Quill rich text editor with image uploader and image droper upload and also image resize.
+- Quill rich text editor with image uploader and image droper upload and also image resize.
+- Open sourse project
 
--Good and minimalistic UI with Tailwind
+- Good and minimalistic UI with Tailwind css
 
--no treditional html table elements
+- No treditional html table elements
 
--TDD test 
+- TDD test 
 
--and some more will came in feature
+- some more will came in feature
 
 
 
 Coming soon:
 
+
+
+- Search Area
+- Dropdown component
+- Dashboard View
+- Google Analytic API for dashboard
+- Admin Middleware dosent work
+- slug uniqueable
+
+[]-Write more test case
+
+[]- visual config file and setting
+
+[]-admin email address is an array in config file
+
+[]-change admin middleware and remove is_admin in user table
+
+[]- modify isAdmin method
+
 []-routes clean up
 
-[]-Remove some column on post table
-
-[]-Search Area
-
-[x]-Dropdown component
+[]-Remove some colomn on post table
 
 []-Category & Tag C.R.U.D
 
@@ -52,28 +80,30 @@ Coming soon:
 
 []-User Profile section
 
-[]-Refactor Login page to login modal
+[]-Change Login page to login modal
 
-[]-Pages Model
-
-[]-Dashboard View
+[]-Pages Model & CRUD
 
 []-Comment ?!
-
-[]-Admin Middleware dosent work
 
 []-Installation command like: php artisan iblog:install
 
 []-Responsive layout
 
-[]-Google Analytic API for dashboard
-
 []-Cache
 
 []-Social login(if comment section will be internal)
 
-[]-Write more test case
-
 []-RTL version ?! Translation ?! Maybe!!
 
 []-And of course the blog theme
+
+
+
+
+
+
+
+## Google analytic for dashboard
+
+i will write later becuase i dident finished yet. 

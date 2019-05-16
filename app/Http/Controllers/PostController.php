@@ -15,7 +15,7 @@ class PostController extends Controller
 
     public function __construct()
     {
-//        $this->middleware('admin', ['except' => ['index', 'show']]);
+        $this->middleware('admin');
     }
 
     /**
@@ -41,6 +41,7 @@ class PostController extends Controller
         $categories = Category::all();
         $tags = Tag::all();
         return view('posts.create', compact('categories', 'tags'));
+
     }
 
     /**
@@ -140,7 +141,6 @@ class PostController extends Controller
         return redirect()->route('posts.index')
             ->with($this->deleteMessage('post'));
     }
-
 
 
 }

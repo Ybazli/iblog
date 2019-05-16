@@ -14,11 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::prefix('blog')->group(function () {
+Route::prefix('blog/admin')->group(function () {
 
     //search
     Route::get('blog' , 'SearchController@search')->name('search');
-
     //dashboard
     Route::get('/dashboard' , 'DashboardController@index');
 
@@ -32,7 +31,6 @@ Route::prefix('blog')->group(function () {
     Route::post('posts/edit/{post}', 'PostController@update')->name('posts.update');
     Route::delete('posts/{post}', 'PostController@delete')->name('posts.delete');
     Route::post('posts/create/image-upload' , 'ImageController@store')->name('posts.image.upload');
-
 
     //category links
     Route::get('categories', 'CategoryController@index')->name('categories.index');

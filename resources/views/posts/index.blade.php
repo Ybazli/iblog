@@ -4,10 +4,10 @@
 
         @include('partials.search' , ['type' => 'posts'])
 
-        <div class="flex flex-wrap">
+        <div class="lg:flex lg:flex-wrap">
 
             @foreach($posts as $post)
-                <div class="w-1/3">
+                <div class="lg:w-1/3">
                     <div class="relative bg-white rounded shadow mb-4 mr-4"
                          style="height: 280px">
                         <div class="text-center bg-grey-lightest  {{ $post->image ? 'overflow-hidden' : '' }}"
