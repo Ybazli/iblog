@@ -12,7 +12,9 @@
 */
 
 Route::get('/', function () {
+    Config::set('iblog.admins' , 'asdasda@gmail.com');
     return view('welcome');
+
 });
 Route::prefix(blogPrefix())->group(function (){
     Route::prefix(adminPrefix())->group(function () {

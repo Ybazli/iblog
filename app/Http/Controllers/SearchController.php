@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function search(Request $request)
     {
         $this->validate($request , [
@@ -24,7 +31,9 @@ class SearchController extends Controller
                 break;
 
             default:
-                $errors = 'oops... Not recognize what is your search type!';
+                $errors = [
+                    'type' => 'oops... Not recognize what is your search type!'
+                ];
                 return redirect()->back()->withErrors($errors);
         }
     }

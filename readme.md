@@ -113,3 +113,24 @@ here some good point form iblog:
 ## Google analytic for dashboard
 
 i will write later becuase i dident finished yet. 
+
+
+
+
+
+## Install command(not ready yet)
+
+```bash
+php artisan iblog:install
+```
+
+[]-create env file
+
+[]- get some data from user in command line for create admin user/prefixs details/app name 
+
+[]-generate app key
+
+[]- put the data in env file
+
+[]- migrate database and seed some table
+
