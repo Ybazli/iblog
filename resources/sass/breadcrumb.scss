@@ -1,0 +1,12 @@
+.breadcrumb-link{
+  @apply .text-grey-light .no-underline ;
+  &:hover{
+    @apply .text-grey-dark;
+  }
+}
+.breadcrumb-current-page{
+  @apply .text-grey-light;
+}
+.breadcrumb-text{
+  @apply .text-grey-light .text-sm mb-5;
+}

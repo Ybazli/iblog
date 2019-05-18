@@ -1,18 +1,13 @@
 @extends('layouts.app')
+@section('breadcrumb-pages')
+    <a href="{{ route('tags.index') }}"
+       class="text-grey-light no-underline hover:text-grey-dark">
+        Tag
+    </a>
+    / Create a Tag
+@endsection
 @section('content')
     <div class="container">
-
-        <p class="text-grey-light text-sm mb-5">
-            <a href="{{ route('home') }}"
-               class="text-grey-light no-underline hover:text-grey-dark">
-                Dashboard
-            </a>
-            /<a href="{{ route('tags.index') }}"
-                class="text-grey-light no-underline hover:text-grey-dark">
-                Tag
-            </a>
-            / Create a Tag
-        </p>
 
         <div class="mx-auto w-2/3 bg-white">
             <div class="p-4">

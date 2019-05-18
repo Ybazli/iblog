@@ -1652,6 +1652,25 @@
   color: #fff;
 }
 
+.breadcrumb-link {
+  color: #dae1e7;
+  text-decoration: none;
+}
+
+.breadcrumb-link:hover {
+  color: #8795a1;
+}
+
+.breadcrumb-current-page {
+  color: #dae1e7;
+}
+
+.breadcrumb-text {
+  color: #dae1e7;
+  font-size: .875rem;
+  margin-bottom: 1.25rem;
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document

@@ -1,24 +1,20 @@
 @extends('layouts.app')
 
+@section('breadcrumb-pages')
+    <span class="breadcrumb-current-page">
+            Category
+        </span>
+@endsection
+
+@section('breadcrumb-btn-group')
+    <a href="{{ route('categories.create') }}"
+       class="button">
+        Create a Category
+    </a>
+@endsection
+
 @section('content')
     <div class="container">
-        <div class="flex justify-between">
-            <p class="text-grey-light text-sm mb-5">
-                <a href="{{ route('home') }}"
-                   class="text-grey-light no-underline hover:text-grey-dark">
-                    Dashboard
-                </a>
-                /<span class="text-grey-light no-underline">
-                    Category
-                </span>
-            </p>
-            <div>
-                <a href="{{ route('categories.create') }}"
-                   class="p-3 bg-indigo-light text-white no-underline text-xs rounded lg:hover:bg-indigo-dark">
-                    Create a Category
-                </a>
-            </div>
-        </div>
 
         @include('partials.search' , ['type' => 'categories'])
 

@@ -1,19 +1,17 @@
 @extends('layouts.app')
-@section('content')
-    <div class="container ">
-        <p class="text-grey-light text-sm mb-5">
-            <a href="{{ route('home') }}"
-               class="text-grey-light no-underline hover:text-grey-dark">
-                Dashboard
-            </a>
-            /<a href="{{ route('tags.index') }}"
-                class="text-grey-light no-underline hover:text-grey-dark">
-                Tag
-            </a>
-            /<span class="uppercase">
+
+@section('breadcrumb-pages')
+    <a href="{{ route('tags.index') }}"
+       class="text-grey-light no-underline hover:text-grey-dark">
+        Tag
+    </a>
+    /<span class="uppercase">
                 {{ $tag->name }}
             </span>
-        </p>
+@endsection
+
+@section('content')
+    <div class="container ">
         <div class="mx-auto w-2/3 bg-white">
             <div class="p-4">
                 <form action="{{ route('tags.update' , $tag) }}"

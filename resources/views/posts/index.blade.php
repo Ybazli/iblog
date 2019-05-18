@@ -1,4 +1,16 @@
 @extends('layouts.app')
+
+@section('breadcrumb-pages')
+ Blog Post
+@endsection
+
+@section('breadcrumb-btn-group')
+    <a href="{{ route('posts.create') }}"
+       class="button">
+        Create a Article
+    </a>
+@endsection
+
 @section('content')
     <div class="container">
 

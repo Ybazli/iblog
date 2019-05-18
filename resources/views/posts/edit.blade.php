@@ -1,23 +1,18 @@
 @extends('layouts.app')
+
+@section('breadcrumb-pages')
+    <a href="/blog" class="text-grey-light no-underline hover:text-grey-dark">
+        Blog
+    </a>
+    / {{ $post->title }}
+@endsection
+
+@section('breadcrumb-btn-group')
+    @include('partials.post-btn-group')
+@endsection
+
 @section('content')
-    <div class="flex justify-between">
-        <div>
-            <p class="text-grey-light">
-                <a href="/blog" class="text-grey-light no-underline hover:text-grey-dark">
-                    Dashboard
-                </a>
-                /<a href="/blog" class="text-grey-light no-underline hover:text-grey-dark">
-                    Blog
-                </a>
-                / {{ $post->title }}
-            </p>
-        </div>
-        <div>
 
-            @include('partials.post-btn-group')
-
-        </div>
-    </div>
     <form action="{{ route('posts.update' , $post) }}" method="post">
 
         @csrf

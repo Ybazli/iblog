@@ -108,7 +108,7 @@ here some good point form iblog:
 
 - [] delete confirmation
 
-- [] breadcrumb must have dedicated view and pass the data
+- [x] breadcrumb must have dedicated view and pass the data
 - [] scss create component style on dedicated file and remove class
 
 

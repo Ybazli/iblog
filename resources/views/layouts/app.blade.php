@@ -32,8 +32,10 @@
         @include('partials.navbar')
 
         <main class="container mx-auto">
+            @include('partials.breadcrumb')
             @yield('content')
         </main>
+
 
         @include('partials.alert')
 
