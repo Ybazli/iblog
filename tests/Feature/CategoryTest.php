@@ -16,11 +16,6 @@ class CategoryTest extends TestCase
     use RefreshDatabase;
 
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-        //$this->withoutExceptionHandling();
-    }
 
     /** @test */
     public function categories_has_index_page_and_categories_show_by_latest()
@@ -81,4 +76,27 @@ class CategoryTest extends TestCase
             ->assertStatus(200)
             ->assertSee($category->name);
     }
+
+
+    /** @test */
+    public function admin_users_can_update_category()
+    {
+        $this->loginAsAdmin();
+        $category = $this->create(Category::class, ['name' => 'hello world']);
+        
+        $updatedCatgory = ['name' => 'hello world 2'];
+
+        $this->patch(route('categories.update' , $category) , $updatedCatgory)
+            ->assertStatus(302)
+            ->assertSessionHas('message' , 'The Category was updated successfully.');
+
+        $this->assertDatabaseHas('categories' , ['name' => $updatedCatgory['name']]);
+        $this->assertDatabaseMissing('categories' , ['name' => $category->name]);
+
+        
+
+
+
+    }
+
 }
