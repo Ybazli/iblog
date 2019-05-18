@@ -12,12 +12,31 @@
 */
 
 Route::get('/', function () {
-    Config::set('iblog.admins' , 'asdasda@gmail.com');
+
     return view('welcome');
 
 });
 Route::prefix(blogPrefix())->group(function (){
+
+
     Route::prefix(adminPrefix())->group(function () {
+
+        //tag links
+
+        Route::get('tags', 'TagController@index')
+            ->name('tags.index');
+        Route::get('tags/create', 'TagController@create')
+            ->name('tags.create');
+        Route::post('tags/create', 'TagController@store')
+            ->name('tags.store');
+        Route::get('tags{tag}', 'TagController@show')
+            ->name('tags.show');
+        Route::get('tags/edit/{tag}', 'TagController@edit')
+            ->name('tags.edit');
+        Route::patch('tags/edit/{tag}', 'TagController@update')
+            ->name('tags.update');
+        Route::delete('tags/{tag}', 'TagController@delete')
+            ->name('tags.delete');
 
         //search
         Route::get('blog' , 'SearchController@search')->name('search');
@@ -36,28 +55,29 @@ Route::prefix(blogPrefix())->group(function (){
         Route::post('posts/create/image-upload' , 'ImageController@store')->name('posts.image.upload');
 
         //category links
-        Route::get('categories', 'CategoryController@index')->name('categories.index');
-        Route::get('categories/{category}', 'CategoryController@show')->name('categories.show');
-        Route::get('categories/create', 'CategoryController@create')->name('categories.create');
-        Route::post('categories/create', 'CategoryController@store')->name('categories.store');
-        Route::get('categories/edit/{category}', 'CategoryController@edit')->name('categories.edit');
-        Route::patch('categories/edit/{category}', 'CategoryController@update')->name('categories.update');
-        Route::delete('categories/{category}', 'CategoryController@delete')->name('categories.delete');
+        Route::get('categories', 'CategoryController@index')
+            ->name('categories.index');
+        Route::get('categories/{category}', 'CategoryController@show')
+            ->name('categories.show');
+        Route::get('categories/create', 'CategoryController@create')
+            ->name('categories.create');
+        Route::post('categories/create', 'CategoryController@store')
+            ->name('categories.store');
+        Route::get('categories/edit/{category}', 'CategoryController@edit')
+            ->name('categories.edit');
+        Route::patch('categories/edit/{category}', 'CategoryController@update')
+            ->name('categories.update');
+        Route::delete('categories/{category}', 'CategoryController@delete')
+            ->name('categories.delete');
 
-        //tag links
-        Route::get('tag', 'TagController@index')->name('tags.index');
-        Route::get('tag/create', 'TagController@create')->name('tags.create');
-        Route::post('tag/create', 'TagController@store')->name('tags.store');
-        Route::get('tags{tag}', 'TagController@show')->name('tags.show');
-        Route::get('tags/edit/{tag}', 'TagController@edit')->name('tags.edit');
-        Route::patch('tags/edit/{tag}', 'TagController@update')->name('tags.update');
-        Route::delete('tags/{tag}', 'TagController@delete')->name('tags.delete');
+
     });
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')
+    ->name('home');
 
 Route::get('logout' , function(){
    auth()->logout();

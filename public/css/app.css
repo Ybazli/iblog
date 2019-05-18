@@ -7837,12 +7837,14 @@ table {
   padding: 0;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  font-size: 1.125rem;
+  font-size: .875rem;
 }
 
 .pagination li {
   display: inline;
   padding: .5rem;
+  border-width: 1px;
+  border-radius: .25rem;
 }
 
 .pagination li a {
@@ -7850,8 +7852,10 @@ table {
   color: #7886d7;
 }
 
-.page-link {
-  color: #8795a1;
+li.active {
+  color: #fff;
+  background-color: #7886d7;
+  border-style: none;
 }
 
 @media (min-width: 576px) {

@@ -17,16 +17,19 @@
     @apply .text-indigo-light;
   }
 .pagination{
-  @apply .list-reset .my-8 .text-lg;
+  @apply .list-reset .my-8 .text-sm;
 }
 .pagination li{
-  @apply .inline p-2;
+  @apply .inline p-2 border rounded;
 }
 .pagination li a{
-  @apply .no-underline .text-indigo-light;
+  @apply .no-underline .text-indigo-light ;
 }
 .page-link{
-  @apply .text-grey-dark;
+  //@apply .text-grey-dark;
+}
+li.active{
+  @apply .text-white bg-indigo-light border-none;
 }
 
 .dropdown-menu{

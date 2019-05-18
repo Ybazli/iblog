@@ -20,9 +20,9 @@ abstract class TestCase extends BaseTestCase
         return $this->actingAs(factory('App\User')->create(['email' => config('iblog.admins')[0]]));
     }
 
-    protected function create($class , $params = [])
+    protected function create($class , $params = [] , $counter = null)
     {
-        return factory($class)->create($params);
+        return factory($class , $counter)->create($params);
     }
 
     protected function make($class , $params = [])

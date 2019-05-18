@@ -13,6 +13,9 @@
                 <li class="mr-5">
                     <a href="{{ route('posts.index') }}" class="link ">Blog</a>
                 </li>
+                <li class="mr-5">
+                    <a href="{{ route('tags.index') }}" class="link ">Tags</a>
+                </li>
             </ul>
         </div>
 
