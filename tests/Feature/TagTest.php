@@ -75,7 +75,7 @@ class TagTest extends TestCase
         $this->loginAsAdmin();
         $tag = $this->raw(Tag::class);
 
-        $this->post(route('tags.store') , $tag)
+        $this->post(route('tags.store' ,  $tag))
             ->assertStatus(302)
             ->assertRedirect(route('tags.index'))
             ->assertSessionHas(['message' => 'The Tag was created successfully.']);

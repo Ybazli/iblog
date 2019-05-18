@@ -16,6 +16,9 @@
                 <li class="mr-5">
                     <a href="{{ route('tags.index') }}" class="link ">Tags</a>
                 </li>
+                <li class="mr-5">
+                    <a href="{{ route('categories.index') }}" class="link ">Categories</a>
+                </li>
             </ul>
         </div>
 

@@ -51,58 +51,65 @@ here some good point form iblog:
 
 ### Tasks:(updatable)
 
-**Note**: [] means in progress otherwise is completed
 
-- Search Area
-- Dropdown component
-- Dashboard View
-- Google Analytic API for dashboard
-- Admin Middleware dosent work
-- slug uniqueable
-- Prefix for admin and blog is config file and each one have a helper for call
-- add addTag method in post model
 
-- Write more test case
+- [x] Search Area
+- [x] Dropdown component
+- [x] Dashboard View
+- [x] Google Analytic API for dashboard
+- [x] Admin Middleware dosent work
+- [x] slug uniqueable
+- [x] Prefix for admin and blog is config file and each one have a helper for call
+- [x] add addTag method in post model
 
-[]- Refactor Post addTag method
+- [x] Write more test case
 
-[]- visual config file and setting
+- [] Refactor Post addTag method
 
-- admin email address is an array in config file
+- [] visual config file and setting
 
-- change admin middleware and remove is_admin in user table
+- [x] admin email address is an array in config file
 
-- modify isAdmin method
+- [x] change admin middleware and remove is_admin in user table
 
-[]-routes clean up
+- [x] modify isAdmin method
 
-- Remove some colomn on post table
+- [] routes clean up
 
-[]-Category & Tag C.R.U.D
+- [x] Remove some colomn on post table
 
-[]-Delete old image after post updating
+- [x] Category & Tag C.R.U.D
 
-[]-User Profile section
+- [] Delete old image after post updating
 
-[]-Change Login page to login modal
+- [] User Profile section
 
-[]-Pages Model & CRUD
+- [] Change Login page to login modal
 
-[]-Comment ?!
+- [] Pages Model & CRUD
 
-[]-Installation command like: php artisan iblog:install
+- [] Comment ?!
 
-[]-Responsive layout
+- [] Installation command like: php artisan iblog:install
 
-[]-Cache
+- [] Responsive layout
 
-[]-Social login(if comment section will be internal)
+- [] Cache
 
-[]-RTL version ?! Translation ?! Maybe!!
+- [] Social login(if comment section will be internal)
 
-[]-And of course the blog theme
+- [] RTL version ?! Translation ?! Maybe!!
 
-[]-tooltips for icon button
+- [] And of course the blog theme
+
+- [] tooltips for icon button
+
+- [] Special menu for admin user
+
+- [] delete confirmation
+
+- [] breadcrumb must have dedicated view and pass the data
+- [] scss create component style on dedicated file and remove class
 
 
 
@@ -124,13 +131,13 @@ i will write later becuase i dident finished yet.
 php artisan iblog:install
 ```
 
-[]-create env file
+- [] create env file
 
-[]- get some data from user in command line for create admin user/prefixs details/app name 
+- [] get some data from user in command line for create admin user/prefixs details/app name 
 
-[]-generate app key
+- [] generate app key
 
-[]- put the data in env file
+- [] put the data in env file
 
-[]- migrate database and seed some table
+- [] migrate database and seed some table
 

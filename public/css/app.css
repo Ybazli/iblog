@@ -7858,6 +7858,31 @@ li.active {
   border-style: none;
 }
 
+.button {
+  padding: .75rem;
+  background-color: #7886d7;
+  color: #fff;
+  text-decoration: none;
+  font-size: .75rem;
+  border-radius: .25rem;
+}
+
+.button:hover {
+  background-color: #5661b3;
+}
+
+.input-default {
+  padding: 1rem;
+  color: #606f7b;
+  width: 100%;
+  border-width: 2px;
+  border-radius: .25rem;
+}
+
+.input-default:focus {
+  @aplly .border-indigo-light .outline-none text-sm;
+}
+
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;

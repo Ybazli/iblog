@@ -38,10 +38,25 @@ Route::prefix(blogPrefix())->group(function (){
         Route::delete('tags/{tag}', 'TagController@delete')
             ->name('tags.delete');
 
+        //category links
+        Route::get('categories', 'CategoryController@index')
+            ->name('categories.index');
+        Route::get('categories/create', 'CategoryController@create')
+            ->name('categories.create');
+        Route::post('categories/create', 'CategoryController@store')
+            ->name('categories.store');
+        Route::get('categories/edit/{category}', 'CategoryController@edit')
+            ->name('categories.edit');
+        Route::patch('categories/edit/{category}', 'CategoryController@update')
+            ->name('categories.update');
+        Route::delete('categories/{category}', 'CategoryController@delete')
+            ->name('categories.delete');
+
         //search
         Route::get('blog' , 'SearchController@search')->name('search');
         //dashboard
-        Route::get('/dashboard' , 'DashboardController@index');
+        Route::get('/dashboard' , 'DashboardController@index')
+        ->name('admin.dashboard');
 
         //posts links
         Route::get('/', 'PostController@index')->name('posts.index');
@@ -54,21 +69,7 @@ Route::prefix(blogPrefix())->group(function (){
         Route::delete('posts/{post}', 'PostController@delete')->name('posts.delete');
         Route::post('posts/create/image-upload' , 'ImageController@store')->name('posts.image.upload');
 
-        //category links
-        Route::get('categories', 'CategoryController@index')
-            ->name('categories.index');
-        Route::get('categories/{category}', 'CategoryController@show')
-            ->name('categories.show');
-        Route::get('categories/create', 'CategoryController@create')
-            ->name('categories.create');
-        Route::post('categories/create', 'CategoryController@store')
-            ->name('categories.store');
-        Route::get('categories/edit/{category}', 'CategoryController@edit')
-            ->name('categories.edit');
-        Route::patch('categories/edit/{category}', 'CategoryController@update')
-            ->name('categories.update');
-        Route::delete('categories/{category}', 'CategoryController@delete')
-            ->name('categories.delete');
+
 
 
     });

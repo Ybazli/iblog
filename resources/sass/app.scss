@@ -20,7 +20,7 @@
   @apply .list-reset .my-8 .text-sm;
 }
 .pagination li{
-  @apply .inline p-2 border rounded;
+  @apply .inline .p-2 .border rounded;
 }
 .pagination li a{
   @apply .no-underline .text-indigo-light ;
@@ -31,6 +31,17 @@
 li.active{
   @apply .text-white bg-indigo-light border-none;
 }
+.button{
+  @apply .p-3 .bg-indigo-light .text-white .no-underline .text-xs .rounded;
+  &:hover{
+    @apply .bg-indigo-dark;
+  }
+}
 
-.dropdown-menu{
+
+.input-default{
+  @apply .p-4 .text-grey-darker .w-full .border-2 .rounded;
+  &:focus{
+    @aplly .border-indigo-light .outline-none text-sm;
+  }
 }

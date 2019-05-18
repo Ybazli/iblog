@@ -9,29 +9,29 @@
                     Dashboard
                 </a>
                 /<span class="text-grey-light no-underline">
-                    Tag
+                    Category
                 </span>
             </p>
             <div>
-                <a href="{{ route('tags.create') }}"
+                <a href="{{ route('categories.create') }}"
                    class="p-3 bg-indigo-light text-white no-underline text-xs rounded lg:hover:bg-indigo-dark">
-                    Create a Tag
+                    Create a Category
                 </a>
             </div>
         </div>
 
-        @include('partials.search' , ['type' => 'tags'])
+        @include('partials.search' , ['type' => 'categories'])
 
         <div class="lg:flex lg:flex-wrap">
-            @foreach($tags as $tag)
+            @foreach($categories as $category)
                 <div class="lg:w-1/5">
                     <div class="relative bg-white rounded shadow mb-4 mr-4 h-24 border-l-4 border-indigo-light">
 
                         <div class="pl-2 py-5">
                             <div>
-                                <a href="{{ route('tags.update' , $tag) }}"
+                                <a href="{{ route('categories.edit' , $category) }}"
                                    class="no-underline text-indigo-light ">
-                                    {{ $tag->name }}
+                                    {{ $category->name }}
                                 </a>
                             </div>
 
@@ -39,13 +39,13 @@
 
                                 <div>
                                     <p class="text-xs italic text-grey-dark">
-                                        {{ $tag->posts->count() }}
+                                        {{ $category->posts->count() }}
                                         Posts
                                     </p>
                                 </div>
 
                                 <div>
-                                    <form action="{{ route('tags.delete' , $tag) }}"
+                                    <form action="{{ route('categories.delete' , $category) }}"
                                           method="post">
                                         @csrf
                                         {{ method_field('DELETE') }}
@@ -66,7 +66,7 @@
         </div>
 
         <div class="text-center">
-            {{ $tags->links() }}
+            {{ $categories->links() }}
         </div>
 
 
