@@ -119,7 +119,7 @@ here some good point form iblog:
 
 ## Google analytic for dashboard
 
-i will write later becuase i dident finished yet. 
+its not finished yet. 
 
 
 
