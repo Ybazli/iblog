@@ -103,6 +103,12 @@ class PostController extends Controller
         $data = $request->only('title', 'body', 'image', 'category_id', 'meta');
 
         $tags = extractId($request->tags);
+
+        if($rquest->image != $post->image){
+            
+            File::delete(public_path($post->image));
+        }
+
         $post->update($data);
 
         foreach ($tags as $tag) {

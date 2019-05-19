@@ -93,10 +93,18 @@ class CategoryTest extends TestCase
         $this->assertDatabaseHas('categories' , ['name' => $updatedCatgory['name']]);
         $this->assertDatabaseMissing('categories' , ['name' => $category->name]);
 
-        
+    }
 
-
-
+    /** @test */
+    public function unauthenticated_admin_user_cant_delete_category()
+    {
+        $this->login();
+        $category = $this->create(Category::class);
+        $this->delete(route('categories.delete' , $category))
+            ->assertStatus(403);
+        $this->assertDatabaseHas('categories' , [
+            'name' => $category->name
+        ]);
     }
 
 }
