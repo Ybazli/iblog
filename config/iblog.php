@@ -1,13 +1,11 @@
 <?php
-
 return [
-    'google_tag' => env('GOOGLE_TAG', null),
 
-    'admins' => [
-        'yashar.bazli@gmail.com'
-    ],
+    'google-tag_env' => env('GOOGLE_TAG_ID', null),
 
-    'admin-prefix' => env('URL_ADMIN_PREFIX' , 'admin'),
+    'admins' => explode(',' , env('ADMINS')),
 
-    'blog-prefix' => env('URL_BLOG_PREFIX' , 'blog')
+    'admin-prefix_env' => env('URL_ADMIN_PREFIX', 'root'),
+
+    'blog-prefix_env' => env('URL_BLOG_PREFIX', 'articles'),
 ];

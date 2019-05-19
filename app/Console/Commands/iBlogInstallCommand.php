@@ -5,6 +5,8 @@ namespace App\Console\Commands;
 use App\User;
 use http\Env;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Config;
+
 
 class iBlogInstallCommand extends Command
 {
@@ -39,9 +41,18 @@ class iBlogInstallCommand extends Command
      */
     public function handle()
     {
+
+        //set prefix into env file for BLOG
         $this->setPrefixForBlog();
+        //set prefix into env file for ADMIN
         $this->setPrefixForAdmin();
+        //run migrate:fresh --seed
+        $this->seedDataBase();
         $this->info('All set! Enjoy that ;)');
+        //create admin user
+        $this->createAdmin();
+
+        //put the admin user was created to admin lists
     }
 
 
@@ -77,23 +88,41 @@ class iBlogInstallCommand extends Command
 
     protected function setPrefixForBlog()
     {
-        $answer = $this->ask('Enter your blog prefix' , 'blog');
+        $answer = $this->ask('Enter your blog prefix', 'blog');
         $this->setEnvironmentValue(['URL_BLOG_PREFIX' => $answer]);
 
     }
 
     protected function setPrefixForAdmin()
     {
-        $answer = $this->ask('Enter your admin side prefix' , 'admin');
+        $answer = $this->ask('Enter your admin side prefix', 'admin');
         $this->setEnvironmentValue(['URL_ADMIN_PREFIX' => $answer]);
 
     }
 
     protected function seedDataBase()
     {
-        $answer = $this->ask('Do you want to seed some dummy data in DB ? if not leave blank.' , 'no');
-        if($answer != 'no'){
-            
+        $answer = $this->ask('Do you want to seed some dummy data in DB ? if not leave blank.', 'no');
+        if ($answer != 'no') {
+            \Artisan::call('migrate:fresh --seed');
+            $this->info('The DB refreshed and seed some dummy data into in it.');
         }
+    }
+
+    protected function createAdmin()
+    {
+        $createAdmin = $this->ask('Lets create admin user ?' , 'NO thanks');
+        if($createAdmin != 'NO thanks'){
+            $admin = factory(User::class)->create([
+                'first_name' => $this->ask('What is your first name?' , 'admin'),
+                'last_name' => $this->ask('What is your last name name?' , 'admin'),
+                'email' => $this->ask('What is your email name?' , 'admin@admin.com'),
+                'username' => $this->ask('What is your username?' , 'admin'),
+                'password' => bcrypt($this->secret('Give me a password?' , 'password'))
+            ]);
+            $this->setEnvironmentValue(['ADMINS' => $admin->email]);
+            $this->info('The admin user base on your input data was created. Good Luck!');
+        }
+
     }
 }

@@ -11,13 +11,15 @@
 
             <ul class="list-reset inline-flex ml-5">
                 <li class="mr-5">
-                    <a href="{{ route('posts.index') }}" class="link ">Blog</a>
+                    <a href="{{ route('posts.index') }}"
+                       class="link ">Blog</a>
                 </li>
                 <li class="mr-5">
                     <a href="{{ route('tags.index') }}" class="link ">Tags</a>
                 </li>
                 <li class="mr-5">
-                    <a href="{{ route('categories.index') }}" class="link ">Categories</a>
+                    <a href="{{ route('categories.index') }}"
+                       class="link ">Categories</a>
                 </li>
             </ul>
         </div>
@@ -63,7 +65,13 @@
                             <a href="#" class="link">Setting</a>
                         </li>
                         <li class="border-t-2 pt-2">
-                            <a href="/logout" class="link">Logout</a>
+                            <a href="#"
+                               onclick="event.preventDefault();document.getElementById('logoutForm').submit();"
+                               class="link">Logout</a>
+                            <form action="{{ route('logout') }}"
+                                  method="post" id="logoutForm">
+                                @csrf
+                            </form>
                         </li>
                     </dropdown>
 
