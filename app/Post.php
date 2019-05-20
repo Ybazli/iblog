@@ -9,7 +9,7 @@ use phpDocumentor\Reflection\Types\Static_;
 class Post extends Model
 {
     protected $guarded = [];
-    protected $with = ['owner' , 'tags' , 'category'];
+//    protected $with = ['owner' , 'tags' , 'category'];
 //    protected $casts = ['meta' => 'array'];
 
     public function tags()

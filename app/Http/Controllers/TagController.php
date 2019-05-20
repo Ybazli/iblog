@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Traids\Messageable;
+use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
 

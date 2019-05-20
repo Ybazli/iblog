@@ -12,11 +12,11 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         User::create([
-            'first_name' => 'Yashar',
-            'last_name' => 'Bazli',
-            'email' => 'yashar.bazli@gmail.com',
+            'first_name' => 'Admin',
+            'last_name' => 'Admin',
+            'email' => 'admin@admin.test',
             'email_verified_at' => now(),
-            'username' => 'ybazli',
+            'username' => 'root',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
         ]);

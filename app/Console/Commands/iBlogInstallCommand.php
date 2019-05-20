@@ -46,13 +46,15 @@ class iBlogInstallCommand extends Command
         $this->setPrefixForBlog();
         //set prefix into env file for ADMIN
         $this->setPrefixForAdmin();
+        //get DB connection details and put it into env file
+        $this->setDbConnection();
         //run migrate:fresh --seed
         $this->seedDataBase();
         $this->info('All set! Enjoy that ;)');
         //create admin user
         $this->createAdmin();
-
         //put the admin user was created to admin lists
+        $this->info('All set. Good Luck.');
     }
 
 
@@ -124,5 +126,18 @@ class iBlogInstallCommand extends Command
             $this->info('The admin user base on your input data was created. Good Luck!');
         }
 
+    }
+
+    protected function setDbConnection()
+    {
+        $dbName = $this->ask('What is the DB name ?');
+        $dbUser = $this->ask('What is DB user?' , 'root');
+        $dbPassword = $this->secret('What is DB password?' , '');
+        $db = [
+            'DB_DATABASE' => $dbName,
+            'DB_USERNAME' => $dbUser,
+            'DB_PASSWORD' => $dbPassword
+        ];
+        $this->setEnvironmentValue($db);
     }
 }

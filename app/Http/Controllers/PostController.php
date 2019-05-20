@@ -25,7 +25,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->paginate(20);
+        $posts = Post::with('owner')->latest()->paginate(20);
 
         return view('posts.index', compact('posts'));
 
@@ -104,7 +104,7 @@ class PostController extends Controller
 
         $tags = extractId($request->tags);
 
-        if($rquest->image != $post->image){
+        if($request->image != $post->image){
             
             File::delete(public_path($post->image));
         }
