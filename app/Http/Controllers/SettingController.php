@@ -37,7 +37,7 @@ class SettingController extends Controller
 
         // return redirect back
         return redirect()->route('setting.edit')
-            ->with($this->updateMessage('ENV'));
+            ->with($this->updateMessage('ENV File'));
     }
 
     protected function getEnvData()
