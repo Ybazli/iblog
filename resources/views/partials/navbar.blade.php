@@ -62,7 +62,7 @@
                             <a href="#" class="link">Profile</a>
                         </li>
                         <li class="mb-4">
-                            <a href="#" class="link">Setting</a>
+                            <a href="{{ route('setting.edit') }}" class="link">Setting</a>
                         </li>
                         <li class="border-t-2 pt-2">
                             <a href="#"

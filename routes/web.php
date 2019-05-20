@@ -26,6 +26,11 @@ Route::prefix(blogPrefix())->group(function (){
 
         //tag links
 
+        Route::get('setting' , 'SettingController@edit')
+            ->name('setting.edit');
+        Route::patch('setting' , 'SettingController@update')
+            ->name('setting.update');
+
         Route::get('tags', 'TagController@index')
             ->name('tags.index');
         Route::get('tags/create', 'TagController@create')

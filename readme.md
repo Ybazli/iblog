@@ -80,7 +80,7 @@ here some good point form iblog:
 
 - [x] Category & Tag C.R.U.D
 
-- [] Delete old image after post updating
+- [x] Delete old image after post updating
 
 - [] User Profile section
 
@@ -90,7 +90,7 @@ here some good point form iblog:
 
 - [] Comment ?!
 
-- [] Installation command like: php artisan iblog:install
+- [x] Installation command like: php artisan iblog:install
 
 - [] Responsive layout
 

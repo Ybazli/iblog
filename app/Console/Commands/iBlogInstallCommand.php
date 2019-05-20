@@ -78,8 +78,8 @@ class iBlogInstallCommand extends Command
                 } else {
                     $str = str_replace($oldLine, "{$envKey}={$envValue}", $str);
                 }
-
             }
+
         }
 
         $str = substr($str, 0, -1);
