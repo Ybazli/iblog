@@ -46,3 +46,8 @@ li.active{
     @aplly .border-indigo-light .outline-none text-sm;
   }
 }
+
+
+.post-input-title{
+  @apply .w-full .py-5 .pl-5 .rounded .font-serif .text-2xl .text-grey-darker;
+}

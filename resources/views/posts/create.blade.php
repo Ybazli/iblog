@@ -28,7 +28,7 @@
             <input type="text"
                    name="title"
                    value="{{ old('title') }}"
-                   class="w-full py-5 pl-5 rounded font-serif text-2xl"
+                   class="post-input-title"
                    placeholder="Title">
         </div>
 

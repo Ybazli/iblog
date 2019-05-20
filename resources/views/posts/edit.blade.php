@@ -29,7 +29,7 @@
             <input type="text"
                    name="title"
                    value="{{ $post->title }}"
-                   class="w-full py-5 pl-5 rounded font-serif text-2xl"
+                   class="post-input-title"
                    placeholder="Title">
         </div>
 

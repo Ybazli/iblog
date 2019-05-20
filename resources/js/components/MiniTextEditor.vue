@@ -1,7 +1,7 @@
 <template>
     <div>
         <input type="hidden" name="body" :value="this.body">
-        <div class="w-full rounded p-5 bg-white editor"
+        <div class="w-full rounded p-5 bg-white editor text-grey-darker"
              style="min-height: 300px;">
         </div>
     </div>

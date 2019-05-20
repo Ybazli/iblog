@@ -78,7 +78,7 @@ class TagTest extends TestCase
         $this->post(route('tags.store' ,  $tag))
             ->assertStatus(302)
             ->assertRedirect(route('tags.index'))
-            ->assertSessionHas(['message' => 'The Tag was created successfully.']);
+            ->assertSessionHas('message' , 'The Tag was created successfully.');
         $this->assertDatabaseHas('tags' , ['name' => $tag['name']]);
     }
 

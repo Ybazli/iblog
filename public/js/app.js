@@ -69407,7 +69407,7 @@ var render = function() {
     }),
     _vm._v(" "),
     _c("div", {
-      staticClass: "w-full rounded p-5 bg-white editor",
+      staticClass: "w-full rounded p-5 bg-white editor text-grey-darker",
       staticStyle: { "min-height": "300px" }
     })
   ])
